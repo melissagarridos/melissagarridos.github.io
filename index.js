@@ -1,5 +1,4 @@
-
-        const toggleBtn = document.getElementById("lang-toggle");
+const toggleBtn = document.getElementById("lang-toggle");
 
         let currentLang = "en";
 
@@ -65,7 +64,7 @@ if (form) {
                 body: JSON.stringify(formData)
             });
 
-            successMsg.style.display = "block";
+            successMsg.classList.add("visible");
 
             form.reset();
 

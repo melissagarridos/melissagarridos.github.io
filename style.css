@@ -240,6 +240,7 @@ html {
   font-size: clamp(2rem, 5vw, 4rem);
   font-weight: bold;
   text-shadow: var(--text-shadow);
+  padding-top: 30px;
 }
 
 .center-title {
@@ -247,6 +248,7 @@ html {
   font-weight: bold;
   text-shadow: var(--text-shadow);
   text-align: center;
+  padding-top: 30px;
 }
 
 
@@ -1262,51 +1264,328 @@ textarea:focus {
 /* ══════════════════════════════════════════════════════
    ANIMATIONS
    ══════════════════════════════════════════════════════ */
+
+/* ── Keyframes ───────────────────────────────────────── */
 @keyframes pageFade {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
+  from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0);     }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 @keyframes floatImage {
   0%   { transform: translateY(0px);  }
-  50%  { transform: translateY(-8px); }
+  50%  { transform: translateY(-10px); }
   100% { transform: translateY(0px);  }
 }
 
-.personal-information,
-.home-project-card,
-.project-card,
-.mini-card,
-.skill-category,
-.cert-card,
-.learning-item,
-.exp-snapshot,
-.timeline-item {
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1);    }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-32px); }
+  to   { opacity: 1; transform: translateX(0);     }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(32px); }
+  to   { opacity: 1; transform: translateX(0);    }
+}
+
+@keyframes successPop {
+  0%   { opacity: 0; transform: scale(0.9) translateY(8px); }
+  60%  { transform: scale(1.03) translateY(-2px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes pulseRing {
+  0%   { box-shadow: 0 0 0 0   rgba(124, 58, 237, 0.35); }
+  70%  { box-shadow: 0 0 0 10px rgba(124, 58, 237, 0);   }
+  100% { box-shadow: 0 0 0 0   rgba(124, 58, 237, 0);    }
+}
+
+@keyframes underlineGrow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes borderPulse {
+  0%,100% { border-color: var(--primary); }
+  50%     { border-color: var(--primary-light); }
+}
+
+/* ── Header ──────────────────────────────────────────── */
+.header {
+  animation: fadeDown 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.headerbtn {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated underline on hover (non-active links) */
+.headerbtn:not(.active)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--primary-light);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.headerbtn:not(.active):hover::after {
+  transform: scaleX(1);
+}
+
+/* Animated underline entrance for the active link */
+.headerbtn.active {
+  border-bottom: none;
+  position: relative;
+}
+
+.headerbtn.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--primary);
+  transform-origin: left center;
+  animation: underlineGrow 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+}
+
+/* ── Page entrance ────────────────────────────────────── */
+.personal-information {
   opacity: 0;
-  transform: translateY(24px);
-  animation: fadeUp 0.8s ease forwards;
+  animation: slideInLeft 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
 }
 
 .photo {
   opacity: 0;
-  transform: translateY(24px);
-  animation: fadeUp 0.8s ease forwards 0.1s;
+  animation: slideInRight 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.25s forwards;
 }
 
 .photo img {
   animation:
-    fadeUp 1s ease forwards,
-    floatImage 5s ease-in-out 1s infinite;
+    fadeIn 0.9s ease forwards,
+    floatImage 6s ease-in-out 1.2s infinite;
 }
 
-/* Hover transitions */
+/* About page: text from left, photo from right */
+.about-bio-text {
+  opacity: 0;
+  animation: slideInLeft 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+}
+
+.about-photo {
+  opacity: 0;
+  animation: slideInRight 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.35s forwards;
+}
+
+/* Page titles */
+.center-title,
+.about-hero .title,
+.projects-hero .title,
+.about-skills-title {
+  opacity: 0;
+  animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
+}
+
+.center-subtitle,
+.projects-subtitle {
+  opacity: 0;
+  animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.25s forwards;
+}
+
+/* Cards & grid items — staggered */
+.home-project-card,
+.project-card,
+.mini-card,
+.cert-card {
+  opacity: 0;
+  transform: translateY(28px);
+  animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.home-project-card:nth-child(1), .project-card:nth-child(1), .mini-card:nth-child(1), .cert-card:nth-child(1) { animation-delay: 0.10s; }
+.home-project-card:nth-child(2), .project-card:nth-child(2), .mini-card:nth-child(2), .cert-card:nth-child(2) { animation-delay: 0.18s; }
+.home-project-card:nth-child(3), .project-card:nth-child(3), .mini-card:nth-child(3), .cert-card:nth-child(3) { animation-delay: 0.26s; }
+.home-project-card:nth-child(4), .project-card:nth-child(4), .mini-card:nth-child(4), .cert-card:nth-child(4) { animation-delay: 0.34s; }
+.home-project-card:nth-child(5), .project-card:nth-child(5), .mini-card:nth-child(5), .cert-card:nth-child(5) { animation-delay: 0.42s; }
+.home-project-card:nth-child(6), .project-card:nth-child(6), .mini-card:nth-child(6), .cert-card:nth-child(6) { animation-delay: 0.50s; }
+
+.skill-category {
+  opacity: 0;
+  transform: translateY(28px);
+  animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.skill-category:nth-child(1) { animation-delay: 0.10s; }
+.skill-category:nth-child(2) { animation-delay: 0.20s; }
+.skill-category:nth-child(3) { animation-delay: 0.30s; }
+.skill-category:nth-child(4) { animation-delay: 0.40s; }
+.skill-category:nth-child(5) { animation-delay: 0.50s; }
+.skill-category:nth-child(6) { animation-delay: 0.60s; }
+
+.learning-item {
+  opacity: 0;
+  animation: scaleIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.learning-item:nth-child(1) { animation-delay: 0.10s; }
+.learning-item:nth-child(2) { animation-delay: 0.18s; }
+.learning-item:nth-child(3) { animation-delay: 0.26s; }
+.learning-item:nth-child(4) { animation-delay: 0.34s; }
+
+.exp-snapshot,
+.timeline-item {
+  opacity: 0;
+  transform: translateY(28px);
+  animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.exp-snapshot:nth-child(1), .timeline-item:nth-child(1) { animation-delay: 0.10s; }
+.exp-snapshot:nth-child(2), .timeline-item:nth-child(2) { animation-delay: 0.22s; }
+.exp-snapshot:nth-child(3), .timeline-item:nth-child(3) { animation-delay: 0.34s; }
+
+/* Contact form fields stagger */
+.contact-form .field {
+  opacity: 0;
+  animation: fadeUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.contact-form .field:nth-child(1) { animation-delay: 0.20s; }
+.contact-form .field:nth-child(2) { animation-delay: 0.30s; }
+.contact-form .field:nth-child(3) { animation-delay: 0.40s; }
+.contact-form .field:nth-child(4) { animation-delay: 0.50s; }
+
+.submit-row {
+  opacity: 0;
+  animation: fadeUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.60s forwards;
+}
+
+/* ── Input focus micro-interaction ───────────────────── */
+input,
+textarea {
+  transition:
+    border-color 0.25s ease,
+    box-shadow   0.25s ease,
+    transform    0.2s  ease;
+}
+
+input:focus,
+textarea:focus {
+  transform: translateY(-1px);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+  animation: borderPulse 1.8s ease-in-out 0.3s 2;
+}
+
+/* ── Submit button ────────────────────────────────────── */
+#submitbtn {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.2s ease;
+}
+
+/* Shimmer sweep on hover */
+#submitbtn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255,255,255,0.25) 50%,
+    transparent 70%
+  );
+  background-size: 200% 100%;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+#submitbtn:hover::after {
+  opacity: 1;
+  animation: shimmer 0.65s ease forwards;
+}
+
+#submitbtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.35);
+}
+
+#submitbtn:active {
+  transform: translateY(0px) scale(0.98);
+  box-shadow: none;
+}
+
+/* ── Success message ──────────────────────────────────── */
+.success-msg {
+  display: none;
+  border-radius: var(--radius);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  background: rgba(196, 181, 253, 0.12);
+}
+
+.success-msg.visible {
+  display: block;
+  animation: successPop 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ── CTA buttons ──────────────────────────────────────── */
+.cta-btn {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform    0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow   0.3s ease,
+    background   0.3s ease,
+    color        0.3s ease,
+    border-color 0.3s ease;
+}
+
+.cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.cta-btn:active {
+  transform: translateY(0px) scale(0.97);
+}
+
+/* Filled button pulse on first appearance */
+.cta-btn.filled {
+  animation: pulseRing 2.5s ease-out 1.5s 2;
+}
+
+/* ── Hover transitions for cards ─────────────────────── */
 .skills,
-.cta-btn,
 .home-project-card,
 .project-card,
 .mini-card,
@@ -1317,36 +1596,101 @@ textarea:focus {
 .photo img,
 .project-image {
   transition:
-    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    transform  0.35s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.35s ease,
     border-color 0.35s ease,
     background 0.35s ease,
-    color 0.35s ease;
+    color      0.35s ease;
 }
 
 .home-project-card:hover,
 .project-card:hover,
-.mini-card:hover,
-.skill-category:hover,
-.cert-card:hover,
-.learning-item:hover,
-.home-cert-pill:hover,
-.photo img:hover {
-  transform: translateY(-6px);
+.mini-card:hover {
+  transform: translateY(-7px) scale(1.01);
+  box-shadow: var(--hover-shadow);
+}
+
+.skill-category:hover {
+  transform: translateY(-5px);
   box-shadow: var(--shadow);
+  border-color: var(--primary-light);
+}
+
+.cert-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}
+
+.learning-item:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: var(--shadow);
+  border-color: var(--primary-light);
+}
+
+.home-cert-pill:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+  border-color: var(--primary-light);
+}
+
+.photo img:hover {
+  transform: scale(1.03);
+  box-shadow: var(--hover-shadow);
 }
 
 .skills:hover {
-  transform: translateY(-4px) scale(1.05);
-}
-
-.cta-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow);
+  transform: translateY(-4px) scale(1.08);
 }
 
 .project-card:hover .project-image {
-  transform: scale(1.04);
+  transform: scale(1.05);
+}
+
+/* ── Lang button ─────────────────────────────────────── */
+.lang-btn {
+  transition: all 0.25s ease;
+}
+
+.lang-btn:active {
+  transform: scale(0.92);
+}
+
+/* ── Section links ────────────────────────────────────── */
+.section-link,
+.hpc-link {
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+
+/* ── Featured card image overlay ─────────────────────── */
+.featured-card {
+  overflow: hidden;
+}
+
+.featured-card .project-image {
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.featured-card:hover .project-image {
+  transform: scale(1.06);
+}
+
+/* ── About photo ─────────────────────────────────────── */
+#photo-code {
+  transition: box-shadow 0.3s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#photo-code:hover {
+  transform: translateY(-6px) rotate(0.5deg);
+  box-shadow: var(--hover-shadow);
+}
+
+/* ── Timeline items ──────────────────────────────────── */
+.timeline-item {
+  transition: padding-left 0.25s ease;
+}
+
+.timeline-item:hover {
+  padding-left: 6px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1668,6 +2012,7 @@ textarea:focus {
  
   .main-title {
     font-size: clamp(1.8rem, 8vw, 48px);
+    padding-top: 0px;
   }
  
   .presentation,
