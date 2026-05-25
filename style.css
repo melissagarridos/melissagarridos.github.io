@@ -1502,7 +1502,7 @@ textarea:focus {
   .header {
     height: auto;
     padding: 0.6rem 1rem;
-    gap: 10px 20px;
+    gap: 20px;
   }
 
   .headerbtn,
@@ -1649,7 +1649,7 @@ textarea:focus {
  
   /* Header */
   .header {
-    gap: 10px;
+    gap: 20px;
   }
  
   .headerbtn,
