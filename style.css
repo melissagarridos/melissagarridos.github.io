@@ -110,7 +110,7 @@ html {
 /* ─── 3. HOME LAYOUT ─────────────────────────────────── */
 .layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 3fr 1fr;
   min-height: calc(100dvh - var(--header-height));
 
   margin: 0 auto;
@@ -222,11 +222,11 @@ html {
 }
 
 .photo img {
-  width: 400px;
-  height: 400px;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
   object-fit: cover;
-  padding: 30px;
+  padding: 16px;
   border: 2px solid #e8d5ff;
 }
 
@@ -240,7 +240,6 @@ html {
   font-size: clamp(2rem, 5vw, 4rem);
   font-weight: bold;
   text-shadow: var(--text-shadow);
-  padding-top: 30px;
 }
 
 .center-title {
@@ -248,7 +247,6 @@ html {
   font-weight: bold;
   text-shadow: var(--text-shadow);
   text-align: center;
-  padding-top: 30px;
 }
 
 
@@ -1714,8 +1712,8 @@ textarea:focus {
   }
 
   .photo img {
-    width: 360px;
-    height: 360px;
+    width: 200px;
+    height: 200px;
   }
 
   .home-section-inner {
@@ -1747,7 +1745,7 @@ textarea:focus {
   /* Home: keep two columns, tighten spacing */
   .layout {
     max-width: 100%;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 3fr 1fr;
     padding: 140px 10px 10px;
     gap: 24px;
     align-items: center;
@@ -1763,9 +1761,9 @@ textarea:focus {
   }
 
   .photo img {
-    width: 300px;
-    height: 300px;
-    padding: 20px;
+    width: 180px;
+    height: 180px;
+    padding: 14px;
   }
 
   /* Home sections */
@@ -2012,7 +2010,6 @@ textarea:focus {
  
   .main-title {
     font-size: clamp(1.8rem, 8vw, 48px);
-    padding-top: 0px;
   }
  
   .presentation,
