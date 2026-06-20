@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Melissa Garrido — Portfolio</title>
+  <script>
+    // Redirect any direct path hit to the SPA hash equivalent
+    const seg = window.location.pathname.replace(/^\/[^/]*\//, '').replace(/\.html$/, '');
+    const hash = seg && seg !== '404' ? '#' + seg : '#home';
+    window.location.replace('/' + hash);
+  </script>
+</head>
+<body></body>
+</html>

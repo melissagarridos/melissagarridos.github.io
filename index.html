@@ -1,636 +1,1151 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/svg+xml" href="Assets/briefcase.svg">
-    <title>Portfolio</title>
 
+    <!-- Primary SEO -->
+    <title>Melissa Garrido — Software Developer &amp; Data Analytics</title>
+    <meta name="description" content="Software Developer and Business Intelligence professional with 3+ years of experience in Python, SQL, Power BI, and web development. Open to remote opportunities.">
+    <meta name="keywords" content="software developer, data analyst, business intelligence professional, Python developer, SQL, Power BI, JavaScript, web developer, data analytics, automation, remote">
+    <meta name="author" content="Melissa Garrido">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://melissagarridos.github.io/">
+    <meta property="og:title" content="Melissa Garrido — Software Developer &amp; & Data Analytics">
+    <meta property="og:description" content="Software Developer and Business Intelligence professional with 3+ years of experience in Python, SQL, Power BI, and web development. Open to remote opportunities.">
+    <meta property="og:image" content="https://melissagarridos.github.io/Assets/profile.png">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://melissagarridos.github.io/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="Assets/briefcase.svg">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Melissa Garrido",
+      "jobTitle": "Software Developer & Business Intelligence professional",
+      "url": "https://melissagarridos.github.io/",
+      "email": "melissagarridosierra@gmail.com",
+      "sameAs": [
+        "https://www.linkedin.com/in/melissavgs/",
+        "https://github.com/melissagarridos"
+      ],
+      "knowsAbout": [
+        "Python", "SQL", "JavaScript", "Power BI",
+        "Business Intelligence", "Data Analytics",
+        "Web Development", "Process Automation",
+        "HTML", "CSS", "Data professionaling"
+      ]
+    }
+    </script>
 
     <link rel="stylesheet" href="style.css">
-
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
 
     <!-- HEADER -->
     <header class="header">
+        <a href="#home"     class="headerbtn" data-view="home"     data-en="Home"     data-es="Inicio">Home</a>
+        <a href="#about"    class="headerbtn" data-view="about"    data-en="About Me" data-es="Sobre mí">About Me</a>
+        <a href="#projects" class="headerbtn" data-view="projects" data-en="Projects" data-es="Proyectos">Projects</a>
+        <a href="#contact"  class="headerbtn" data-view="contact"  data-en="Contact"  data-es="Contacto">Contact</a>
 
-        <a href="index.html" class="headerbtn active" data-en="Home" data-es="Inicio">Home</a>
-
-        <a href="about.html" class="headerbtn" data-en="About Me" data-es="Sobre mí">
-            About Me
-        </a>
-
-        <a href="projects.html" class="headerbtn" data-en="Projects" data-es="Proyectos">
-            Projects
-        </a>
-
-        <a href="contact.html" class="headerbtn" data-en="Contact" data-es="Contacto">
-            Contact
-        </a>
-
-
-        <button id="lang-toggle" class="lang-btn">
-            ES
-        </button>
-
+        <div class="header-right">
+            <button id="lang-toggle" class="lang-btn">ES</button>
+            <button id="theme-toggle" class="theme-btn" aria-label="Toggle dark mode">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+            <button class="hamburger" id="hamburger" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
     </header>
 
-    <!-- HERO -->
-    <div class="layout">
+    <!-- SIDEBAR (mobile) -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    <nav class="sidebar" id="sidebar">
+        <button class="sidebar-close" id="sidebar-close" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="sidebar-nav">
+            <a href="#home"     class="sidebar-link" data-view="home">
+                <i class="fa-solid fa-house"></i>
+                <span data-en="Home" data-es="Inicio">Home</span>
+            </a>
+            <a href="#about"    class="sidebar-link" data-view="about">
+                <i class="fa-solid fa-user"></i>
+                <span data-en="About Me" data-es="Sobre mí">About Me</span>
+            </a>
+            <a href="#projects" class="sidebar-link" data-view="projects">
+                <i class="fa-solid fa-code"></i>
+                <span data-en="Projects" data-es="Proyectos">Projects</span>
+            </a>
+            <a href="#contact"  class="sidebar-link" data-view="contact">
+                <i class="fa-solid fa-envelope"></i>
+                <span data-en="Contact" data-es="Contacto">Contact</span>
+            </a>
+        </div>
+        <div class="sidebar-footer">
+            <button id="sidebar-lang" class="lang-btn">ES</button>
+            <button id="sidebar-theme" class="theme-btn" aria-label="Toggle dark mode">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </div>
+    </nav>
 
-        <section class="personal-information">
+    <!-- ═══════════════════════════════════════════════════════
+         VIEW: HOME
+    ═══════════════════════════════════════════════════════ -->
+    <div id="view-home" class="view">
 
-            <span
-                class="presentation"
-                data-en="Hey, I'm Melissa Garrido 👋🏻"
-                data-es="Hola, soy Melissa Garrido 👋🏻"
-            >
-                Hey, I'm Melissa Garrido 👋🏻
-            </span>
+        <!-- HERO -->
+        <div class="layout">
 
-            <span class="main-title">
+            <section class="personal-information">
 
                 <span
-                    class="highlight"
-                    data-en="Business Intelligence"
-                    data-es="Inteligencia de Negocios"
+                    class="presentation"
+                    data-en="Hey, I'm Melissa Garrido 👋🏻"
+                    data-es="Hola, soy Melissa Garrido 👋🏻"
                 >
-                    Business Intelligence
+                    Hey, I'm Melissa Garrido 👋🏻
                 </span>
 
-                <br>
+                <span class="main-title">
+                    <span
+                        class="highlight"
+                        data-en="Software Developer"
+                        data-es="Desarrolladora de Software"
+                    >
+                        Software Developer
+                    </span>
+                    <br>
+                    <span
+                        data-en="&amp; BI Analytics"
+                        data-es="y Analítica de datos"
+                    >
+                        &amp; BI Analytics
+                    </span>
+                </span>
 
                 <span
-                    data-en="Analytics & Development"
-                    data-es="Analítica y Desarrollo"
+                    class="presentation"
+                    data-en="Results-driven Software Developer and Data Analytics professional with 3+ years of experience building automation solutions, business intelligence dashboards, and data-driven applications across e-commerce, supply chain, and BI environments."
+                    data-es="Desarrolladora de Software y profesional de Analítica de Datos orientada a resultados con más de 3 años de experiencia construyendo soluciones de automatización, dashboards de inteligencia de negocios y aplicaciones basadas en datos."
                 >
-                   Analytics & Development
+                    Results-driven Software Developer and Data Analytics professional with 3+ years of experience building automation solutions, business intelligence dashboards, and data-driven applications across e-commerce, supply chain, and BI environments.
                 </span>
 
-            </span>
+                <!-- SKILLS -->
+                <div class="skill-box">
+                    <i class="skills fa-brands fa-python"    title="Python"></i>
+                    <i class="skills fa-brands fa-html5"     title="HTML"></i>
+                    <i class="skills fa-brands fa-css3-alt"  title="CSS"></i>
+                    <i class="skills fa-brands fa-js"        title="JavaScript"></i>
+                    <i class="skills fa-solid fa-file-excel" title="Excel"></i>
+                    <i class="skills fa-solid fa-chart-column" title="Power BI"></i>
+                    <i class="skills fa-solid fa-database"   title="SQL"></i>
+                </div>
 
-            <span
-                class="presentation"
-                data-en="Results-driven Data & Analytics professional with 3+ years of experience across e-commerce, supply chain, and business intelligence environments."
-                data-es="Profesional de Datos y Analítica orientado a resultados con más de 3 años de experiencia en entornos de comercio electrónico, cadena de suministro e inteligencia de negocios."
-            >
-                Results-driven Data & Analytics professional with 3+ years of experience across e-commerce, supply chain, and business intelligence environments.
-            </span>
+                <!-- BUTTONS -->
+                <div class="buttons">
+                    <a href="#contact" class="cta-btn filled">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span data-en="Contact" data-es="Contacto">Contact</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/melissavgs/" class="cta-btn filled" target="_blank" rel="noopener">
+                        <i class="fa-brands fa-linkedin"></i>
+                        LinkedIn
+                    </a>
+                    <a href="https://github.com/melissagarridos" class="cta-btn outline" target="_blank" rel="noopener">
+                        <i class="fa-brands fa-github"></i>
+                        GitHub
+                    </a>
+                    <a href="Assets/Melissa_Garrido_CV.pdf" class="cta-btn outline" target="_blank">
+                        <i class="fa-solid fa-file-pdf"></i>
+                        <span data-en="Resume" data-es="Hoja de Vida">Resume</span>
+                    </a>
+                </div>
+
+            </section>
+
+            <!-- PHOTO -->
+            <section class="photo">
+                <img src="Assets/profile.png" alt="Melissa Garrido — Software Developer & BI professional">
+            </section>
+
+        </div>
+
+        <!-- FEATURED PROJECTS -->
+        <section class="home-section" id="home-projects">
+            <div class="home-section-inner">
+
+                <div class="home-section-header">
+                    <h2 class="home-section-title">
+                        <span data-en="Featured Projects" data-es="Proyectos Destacados">Featured Projects</span>
+                        <span class="highlight">.</span>
+                    </h2>
+                    <a href="#projects" class="section-link">
+                        <span data-en="View all" data-es="Ver todos">View all</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="home-projects-grid">
+
+                    <!-- SUSHI -->
+                    <article class="home-project-card">
+                        <div class="hpc-top">
+                            <div class="hpc-icon"><i class="fa-solid fa-utensils"></i></div>
+                            <span class="hpc-badge" data-en="Frontend" data-es="Frontend">Frontend</span>
+                        </div>
+                        <h3 class="hpc-title" data-en="Sushi Festival Landing Page" data-es="Landing Page Festival Sushi">Sushi Festival Landing Page</h3>
+                        <p class="hpc-desc" data-en="Responsive landing page for a gastronomic event featuring modern UI design, interactive sections, and optimized user experience." data-es="Landing page responsiva para un evento gastronómico con diseño UI moderno, secciones interactivas y experiencia de usuario optimizada.">
+                            Responsive landing page for a gastronomic event featuring modern UI design, interactive sections, and optimized user experience.
+                        </p>
+                        <div class="hpc-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                        <a href="https://festival-gastronomico-baq.netlify.app/" class="hpc-link" target="_blank">
+                            <span data-en="Live project" data-es="Proyecto en vivo">Live project</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </article>
+
+                    <!-- TERMINAL SOULS -->
+                    <article class="home-project-card">
+                        <div class="hpc-top">
+                            <div class="hpc-icon"><i class="fa-solid fa-gamepad"></i></div>
+                            <span class="hpc-badge" data-en="Python" data-es="Python">Python</span>
+                        </div>
+                        <h3 class="hpc-title" data-en="Terminal Souls" data-es="Terminal Souls">Terminal Souls</h3>
+                        <p class="hpc-desc" data-en="Terminal-based fighting game developed in Python with combat logic, gameplay rounds, and interactive CLI mechanics." data-es="Juego de peleas en terminal desarrollado en Python con lógica de combate, rondas de juego y mecánicas interactivas CLI.">
+                            Terminal-based fighting game developed in Python with combat logic, gameplay rounds, and interactive CLI mechanics.
+                        </p>
+                        <div class="hpc-tags"><span>Python</span><span>Game Logic</span><span>CLI</span></div>
+                        <a href="https://github.com/melissagarridos/Terminal-Souls" class="hpc-link" target="_blank">
+                            <span data-en="See project" data-es="Ver proyecto">See project</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </article>
+
+                    <!-- WFS TOOLKIT -->
+                    <article class="home-project-card">
+                        <div class="hpc-top">
+                            <div class="hpc-icon"><i class="fa-solid fa-gears"></i></div>
+                            <span class="hpc-badge" data-en="Automation" data-es="Automatización">Automation</span>
+                        </div>
+                        <h3 class="hpc-title" data-en="WFS Refund Recovery Toolkit" data-es="WFS Refund Recovery Toolkit">WFS Refund Recovery Toolkit</h3>
+                        <p class="hpc-desc" data-en="Operational automation toolkit to streamline Walmart Fulfillment Services reimbursement workflows, audit tracking, and financial recovery processes." data-es="Herramienta de automatización para optimizar los flujos de reembolsos de Walmart, seguimiento de auditorías y recuperación financiera.">
+                            Operational automation toolkit to streamline Walmart Fulfillment Services reimbursement workflows, audit tracking, and financial recovery processes.
+                        </p>
+                        <div class="hpc-tags"><span>Operations</span><span>Analytics</span><span>Automation</span></div>
+                        <a href="#projects" class="hpc-link">
+                            <span data-en="See project" data-es="Ver proyecto">See project</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE SNAPSHOT -->
+        <section class="home-section home-section-alt" id="home-experience">
+            <div class="home-section-inner">
+
+                <div class="home-section-header">
+                    <h2 class="home-section-title">
+                        <span data-en="Experience" data-es="Experiencia">Experience</span>
+                        <span class="highlight">.</span>
+                    </h2>
+                    <a href="#about" class="section-link">
+                        <span data-en="Full details" data-es="Ver detalles">Full details</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="exp-snapshot">
+                    <div class="exp-snap-role">
+                        <span class="exp-snap-year" data-en="Aug 2025 — Present · 11 mos" data-es="Ago 2025 — Actualidad · 11 meses">Aug 2025 — Present · 11 mos</span>
+                        <div class="exp-snap-info">
+                            <h3 data-en="Case Manager" data-es="Case Manager">Case Manager</h3>
+                            <span class="exp-snap-company" data-en="Sellcord · Full-time · Remote" data-es="Sellcord · Tiempo Completo · Remoto">Sellcord · Full-time · Remote</span>
+                        </div>
+                    </div>
+                    <ul class="exp-snap-bullets">
+                        <li data-en="Managed and analyzed performance across multiple Walmart Seller Center accounts" data-es="Gestioné y analicé el rendimiento de múltiples cuentas en Walmart Seller Center">Managed and analyzed performance across multiple Walmart Seller Center accounts</li>
+                        <li data-en="Contributed to recovering over $250K in reimbursements by optimizing dispute processes and improving tracking accuracy" data-es="Contribuí a recuperar más de $250K en reembolsos optimizando procesos de disputas y mejorando la precisión del seguimiento">Contributed to recovering over $250K in reimbursements by optimizing dispute processes and improving tracking accuracy</li>
+                        <li data-en="Streamlined workflows using Slack and Google Workspace, significantly reducing resolution times" data-es="Optimicé flujos de trabajo con Slack y Google Workspace, reduciendo significativamente los tiempos de resolución">Streamlined workflows using Slack and Google Workspace, significantly reducing resolution times</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CERTIFICATIONS SNAPSHOT -->
+        <section class="home-section" id="home-certs">
+            <div class="home-section-inner">
+
+                <div class="home-section-header">
+                    <h2 class="home-section-title">
+                        <span data-en="Learning" data-es="Aprendizaje">Learning</span>
+                        <span class="highlight">.</span>
+                    </h2>
+                    <a href="#about" class="section-link">
+                        <span data-en="All certs" data-es="Todas las certificaciones">All certs</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="home-certs-row">
+                    <div class="home-cert-pill" data-en="Artificial Intelligence Bootcamp" data-es="Bootcamp de Inteligencia Artificial">
+                        <i class="fa-solid fa-brain"></i> Artificial Intelligence Bootcamp
+                    </div>
+                    <div class="home-cert-pill" data-en="SQL Complete Course" data-es="Curso Completo de SQL">
+                        <i class="fa-solid fa-database"></i> SQL Complete Course
+                    </div>
+                    <div class="home-cert-pill" data-en="Power BI Data Analysis" data-es="Análisis de Datos con Power BI">
+                        <i class="fa-solid fa-chart-column"></i> Power BI Data Analysis
+                    </div>
+                    <div class="home-cert-pill" data-en="Python Fundamentals" data-es="Fundamentos de Python">
+                        <i class="fa-brands fa-python"></i> Python Fundamentals
+                    </div>
+                </div>
+
+                <div class="home-currently-learning">
+                    <span class="currently-label" data-en="Currently learning:" data-es="Aprendiendo actualmente:">Currently learning:</span>
+                    <span class="currently-items" data-en="Advanced SQL &amp; Data Modeling · Python Automation · React · Software Architecture · AWS Fundamentals" data-es="SQL Avanzado y Modelado de Datos · Automatización con Python · React · Arquitectura de Software · Fundamentos de AWS">
+                        Advanced SQL &amp; Data Modeling · Python Automation · React · Software Architecture · AWS Fundamentals
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+    </div><!-- /view-home -->
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         VIEW: ABOUT (Bio + Skills + Experience + Certs)
+    ═══════════════════════════════════════════════════════ -->
+    <div id="view-about" class="view">
+
+        <!-- BIO & SKILLS -->
+        <main class="about-page">
+
+            <section class="about-hero">
+                <h1 class="title" data-en="About Me<span class='highlight'>.</span>" data-es="Sobre mí<span class='highlight'>.</span>">
+                    About Me<span class="highlight">.</span>
+                </h1>
+            </section>
+
+            <section class="about-bio-grid">
+
+                <div class="about-bio-text">
+                    <p data-en="I'm a Software Developer and technical analyst focused on automation professionaling, business intelligence, and full-stack development." data-es="Soy una Desarrolladora de Software y analista técnica enfocada en ingeniería de automatización, inteligencia de negocios y desarrollo full-stack.">
+                        I'm a Software Developer and technical analyst focused on automation professionaling, business intelligence, and full-stack development.
+                    </p>
+                    <p data-en="My background combines operational problem-solving with technical tools such as Python, Power BI, JavaScript, SQL, Excel, HTML, and CSS. I build data-driven applications and automation solutions that improve workflows, reduce manual effort, and turn raw data into actionable insights." data-es="Mi experiencia combina resolución de problemas operativos con herramientas técnicas como Python, Power BI, JavaScript, SQL, Excel, HTML y CSS. Construyo aplicaciones basadas en datos y soluciones de automatización que mejoran flujos de trabajo y convierten datos en información útil.">
+                        My background combines operational problem-solving with technical tools such as Python, Power BI, JavaScript, SQL, Excel, HTML, and CSS. I build data-driven applications and automation solutions that improve workflows, reduce manual effort, and turn raw data into actionable insights.
+                    </p>
+                </div>
+
+                <div class="about-photo">
+                    <img src="Assets/coding.jpg" alt="Melissa Garrido coding" id="photo-code">
+                </div>
+
+            </section>
 
             <!-- SKILLS -->
-            <div class="skill-box">
+            <section class="about-skills">
 
-                <i
-                    class="skills fa-brands fa-python"
-                    title="Python"
-                ></i>
-
-                <i
-                    class="skills fa-brands fa-html5"
-                    title="HTML"
-                ></i>
-
-                <i
-                    class="skills fa-brands fa-css3-alt"
-                    title="CSS"
-                ></i>
-
-                <i
-                    class="skills fa-brands fa-js"
-                    title="JavaScript"
-                ></i>
-
-                <i
-                    class="skills fa-solid fa-file-excel"
-                    title="Excel"
-                ></i>
-
-                <i
-                    class="skills fa-solid fa-chart-column"
-                    title="Power BI"
-                ></i>
-
-                <i
-                    class="skills fa-solid fa-database"
-                    title="SQL"
-                ></i>
-
-            </div>
-
-            <!-- BUTTONS -->
-            <div class="buttons">
-
-                <a
-                    href="contact.html"
-                    class="cta-btn filled"
-                >
-                    <i class="fa-solid fa-envelope"></i>
-
-                    <span data-en="Contact" data-es="Contacto">
-                        Contact
-                    </span>
-                </a>
-
-                <a
-                    href="https://www.linkedin.com/in/melissavgs/"
-                    class="cta-btn filled"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    <i class="fa-brands fa-linkedin"></i>
-                    LinkedIn
-                </a>
-
-                <a
-                    href="https://github.com/melissagarridos"
-                    class="cta-btn outline"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    <i class="fa-brands fa-github"></i>
-                    GitHub
-                </a>
-
-                <a
-                    href="Assets/Melissa_Garrido_CV.pdf"
-                    class="cta-btn outline"
-                    target="_blank"
-                >
-                    <i class="fa-solid fa-file-pdf"></i>
-
-                    <span data-en="Resume" data-es="Hoja de Vida">
-                        Resume
-                    </span>
-                </a>
-
-            </div>
-
-        </section>
-
-        <!-- PHOTO -->
-        <section class="photo">
-
-            <img
-                src="Assets/IMG.PNG"
-                alt="Melissa Garrido"
-            >
-
-        </section>
-
-    </div>
-
-    <!-- FEATURED PROJECTS -->
-    <section class="home-section" id="home-projects">
-
-        <div class="home-section-inner">
-
-            <div class="home-section-header">
-
-                <h2 class="home-section-title">
-
-                    <span
-                        data-en="Featured Projects"
-                        data-es="Proyectos Destacados"
-                    >
-                        Featured Projects
-                    </span>
-
-                    <span class="highlight">.</span>
-
+                <h2 class="about-skills-title" data-en="Skills<span class='highlight'>.</span>" data-es="Habilidades<span class='highlight'>.</span>">
+                    Skills<span class="highlight">.</span>
                 </h2>
 
-                <a href="projects.html" class="section-link">
-
-                    <span
-                        data-en="View all"
-                        data-es="Ver todos"
-                    >
-                        View all
-                    </span>
-
-                    <i class="fa-solid fa-arrow-right"></i>
-
-                </a>
-
-            </div>
-
-            <div class="home-projects-grid">
-
-                <!-- SUSHI -->
-                <article class="home-project-card">
-
-                    <div class="hpc-top">
-
-                        <div class="hpc-icon">
-                            <i class="fa-solid fa-utensils"></i>
-                        </div>
-
-                        <span
-                            class="hpc-badge"
-                            data-en="Frontend"
-                            data-es="Frontend"
-                        >
-                            Frontend
-                        </span>
-
-                    </div>
-
-                    <h3
-                        class="hpc-title"
-                        data-en="Sushi Festival Landing Page"
-                        data-es="Landing Page Festival Sushi"
-                    >
-                        Sushi Festival Landing Page
-                    </h3>
-
-                    <p
-                        class="hpc-desc"
-                        data-en="Responsive landing page for a gastronomic event featuring modern UI design, interactive sections, and optimized user experience."
-                        data-es="Landing page responsiva para un evento gastronómico con diseño UI moderno, secciones interactivas y experiencia de usuario optimizada."
-                    >
-                        Responsive landing page for a gastronomic event
-                        featuring modern UI design, interactive sections,
-                        and optimized user experience.
-                    </p>
-
-                    <div class="hpc-tags">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
-                    </div>
-
-                    <a
-                        href="https://festival-gastronomico-baq.netlify.app/"
-                        class="hpc-link"
-                        target="_blank"
-                    >
-
-                        <span
-                            data-en="Live project"
-                            data-es="Proyecto en vivo"
-                        >
-                            Live project
-                        </span>
-
-                        <i class="fa-solid fa-arrow-right"></i>
-
-                    </a>
-
-                </article>
-
-                <!-- TERMINAL SOULS -->
-                <article class="home-project-card">
-
-                    <div class="hpc-top">
-
-                        <div class="hpc-icon">
-                            <i class="fa-solid fa-gamepad"></i>
-                        </div>
-
-                        <span
-                            class="hpc-badge"
-                            data-en="Python"
-                            data-es="Python"
-                        >
-                            Python
-                        </span>
-
-                    </div>
-
-                    <h3
-                        class="hpc-title"
-                        data-en="Terminal Souls"
-                        data-es="Terminal Souls"
-                    >
-                        Terminal Souls
-                    </h3>
-
-                    <p
-                        class="hpc-desc"
-                        data-en="Terminal-based fighting game developed in Python with combat logic, gameplay rounds, and interactive CLI mechanics."
-                        data-es="Juego de peleas en terminal desarrollado en Python con lógica de combate, rondas de juego y mecánicas interactivas CLI."
-                    >
-                        Terminal-based fighting game developed in Python
-                        with combat logic, gameplay rounds, and
-                        interactive CLI mechanics.
-                    </p>
-
-                    <div class="hpc-tags">
-                        <span>Python</span>
-                        <span>Game Logic</span>
-                        <span>CLI</span>
-                    </div>
-
-                    <a
-                        href="https://github.com/melissagarridos/Terminal-Souls"
-                        class="hpc-link"
-                        target="_blank"
-                    >
-
-                        <span
-                            data-en="See project"
-                            data-es="Ver proyecto"
-                        >
-                            See project
-                        </span>
-
-                        <i class="fa-solid fa-arrow-right"></i>
-
-                    </a>
-
-                </article>
-
-                <!-- PORTFOLIO -->
-                <article class="home-project-card">
-
-                    <div class="hpc-top">
-
-                        <div class="hpc-icon">
-                            <i class="fa-solid fa-briefcase"></i>
-                        </div>
-
-                        <span
-                            class="hpc-badge"
-                            data-en="Portfolio"
-                            data-es="Portafolio"
-                        >
-                            Portfolio
-                        </span>
-
-                    </div>
-
-                    <h3
-                        class="hpc-title"
-                        data-en="Professional Portfolio Landing Page"
-                        data-es="Landing Page de Portafolio Profesional"
-                    >
-                        Professional Portfolio Landing Page
-                    </h3>
-
-                    <p
-                        class="hpc-desc"
-                        data-en="Multi-page responsive portfolio built with HTML, CSS, and JavaScript featuring custom UI components, animations, and mobile-first design."
-                        data-es="Portafolio responsivo multi página construido con HTML, CSS y JavaScript con componentes UI personalizados, animaciones y diseño mobile-first."
-                    >
-                        Multi-page responsive portfolio built with HTML,
-                        CSS, and JavaScript featuring custom UI components,
-                        animations, and mobile-first design.
-                    </p>
-
-                    <div class="hpc-tags">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
-                    </div>
-
-                    <a
-                        href="projects.html"
-                        class="hpc-link"
-                    >
-
-                        <span
-                            data-en="See project"
-                            data-es="Ver proyecto"
-                        >
-                            See project
-                        </span>
-
-                        <i class="fa-solid fa-arrow-right"></i>
-
-                    </a>
-
-                </article>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section
-        class="home-section home-section-alt"
-        id="home-experience"
-    >
-
-        <div class="home-section-inner">
-
-            <div class="home-section-header">
-
-                <h2 class="home-section-title">
-
-                    <span
-                        data-en="Experience"
-                        data-es="Experiencia"
-                    >
-                        Experience
-                    </span>
-
-                    <span class="highlight">.</span>
-
-                </h2>
-
-                <a href="about.html#exp-page" class="section-link">
-
-                    <span
-                        data-en="Full details"
-                        data-es="Ver detalles"
-                    >
-                        Full details
-                    </span>
-
-                    <i class="fa-solid fa-arrow-right"></i>
-
-                </a>
-
-            </div>
-
-            <div class="exp-snapshot">
-
-                <div class="exp-snap-role">
-
-                    <span
-                        class="exp-snap-year"
-                        data-en="Aug 2025 — Present"
-                        data-es="Ago 2025 — Actualidad"
-                    >
-                        Aug 2025 — Present
-                    </span>
-
-                    <div class="exp-snap-info">
-
-                        <h3
-                            data-en="Case Manager & Operations Analyst"
-                            data-es="Case Manager y Analista de Operaciones"
-                        >
-                            Case Manager & Operations Analyst
+                <div class="skills-grid">
+
+                    <div class="skill-category">
+                        <h3 class="skill-cat-title" data-en="<i class='fa-solid fa-code'></i> Languages" data-es="<i class='fa-solid fa-code'></i> Lenguajes">
+                            <i class="fa-solid fa-code"></i> Languages
                         </h3>
+                        <ul class="skill-list">
+                            <li>Python</li>
+                            <li>JavaScript</li>
+                            <li>SQL</li>
+                        </ul>
+                    </div>
 
-                        <span
-                            class="exp-snap-company"
-                            data-en="Sellcord · Remote"
-                            data-es="Sellcord · Remoto"
-                        >
-                            Sellcord · Remote
-                        </span>
+                    <div class="skill-category">
+                        <h3 class="skill-cat-title" data-en="<i class='fa-brands fa-html5'></i> Frontend" data-es="<i class='fa-brands fa-html5'></i> Frontend">
+                            <i class="fa-brands fa-html5"></i> Frontend
+                        </h3>
+                        <ul class="skill-list">
+                            <li>HTML</li>
+                            <li>CSS</li>
+                        </ul>
+                    </div>
 
+                    <div class="skill-category">
+                        <h3 class="skill-cat-title" data-en="<i class='fa-solid fa-chart-bar'></i> Data &amp; BI" data-es="<i class='fa-solid fa-chart-bar'></i> Datos &amp; BI">
+                            <i class="fa-solid fa-chart-bar"></i> Data &amp; BI
+                        </h3>
+                        <ul class="skill-list">
+                            <li>Power BI</li>
+                            <li>Excel</li>
+                            <li>Pandas</li>
+                            <li data-en="Data Cleaning" data-es="Limpieza de Datos">Data Cleaning</li>
+                            <li data-en="Reporting" data-es="Reportes">Reporting</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3 class="skill-cat-title" data-en="<i class='fa-solid fa-wrench'></i> Tools" data-es="<i class='fa-solid fa-wrench'></i> Herramientas">
+                            <i class="fa-solid fa-wrench"></i> Tools
+                        </h3>
+                        <ul class="skill-list">
+                            <li>Git &amp; GitHub</li>
+                            <li>VS Code</li>
+                            <li data-en="Google Apps Script" data-es="Google Apps Script">Google Apps Script</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3 class="skill-cat-title" data-en="<i class='fa-solid fa-briefcase'></i> Business / Operations" data-es="<i class='fa-solid fa-briefcase'></i> Negocios / Operaciones">
+                            <i class="fa-solid fa-briefcase"></i> Business / Operations
+                        </h3>
+                        <ul class="skill-list">
+                            <li data-en="Process Optimization" data-es="Optimización de Procesos">Process Optimization</li>
+                            <li data-en="Incident Tracking" data-es="Seguimiento de Incidentes">Incident Tracking</li>
+                            <li>WFS Audits</li>
+                            <li data-en="Escalation Management" data-es="Gestión de Escalaciones">Escalation Management</li>
+                        </ul>
                     </div>
 
                 </div>
+            </section>
 
-                <ul class="exp-snap-bullets">
+        </main>
 
-                    <li
-                        data-en="Managed Walmart Seller Center accounts and operational workflows"
-                        data-es="Gestioné cuentas de Walmart Seller Center y flujos operativos"
-                    >
-                        Managed Walmart Seller Center accounts
-                        and operational workflows
-                    </li>
+        <!-- EXPERIENCE & CERTIFICATIONS -->
+        <main id="exp-page" class="exp-page">
 
-                    <li
-                        data-en="Contributed to reimbursement processes exceeding USD 250K"
-                        data-es="Contribuí a procesos de reembolsos superiores a USD 250K"
-                    >
-                        Contributed to reimbursement processes
-                        exceeding USD 250K
-                    </li>
+            <section class="exp-hero">
+                <h1 class="title">
+                    <span data-en="Experience" data-es="Experiencia">Experience</span><span class="highlight">.</span>
+                </h1>
+            </section>
 
-                    <li
-                        data-en="Built operational reports and KPI tracking systems using Excel and analytics tools"
-                        data-es="Desarrollé reportes operativos y sistemas de seguimiento KPI usando Excel y herramientas analíticas"
-                    >
-                        Built operational reports and KPI tracking
-                        systems using Excel and analytics tools
-                    </li>
+            <!-- WORK EXPERIENCE -->
+            <section class="exp-section">
 
-                    <li
-                        data-en="Supported escalation management, shipment investigations, and workflow optimization"
-                        data-es="Apoyé gestión de escalaciones, investigaciones de envíos y optimización de procesos"
-                    >
-                        Supported escalation management,
-                        shipment investigations, and workflow optimization
-                    </li>
+                <h2 class="section-label" data-en="Experience" data-es="Experiencia">Experience</h2>
 
-                </ul>
+                <div class="timeline">
 
-            </div>
+                    <article class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-meta">
+                                <span class="timeline-date" data-en="Aug 2025 — Present · 11 mos" data-es="Ago 2025 — Actualidad · 11 meses">Aug 2025 — Present · 11 mos</span>
+                                <span class="timeline-company" data-en="Sellcord · Full-time" data-es="Sellcord · Tiempo Completo">Sellcord · Full-time</span>
+                            </div>
+                            <h3 class="timeline-role" data-en="Case Manager" data-es="Case Manager">Case Manager</h3>
+                            <ul class="timeline-bullets">
+                                <li data-en="Managed and analyzed performance across multiple Walmart Seller Center accounts" data-es="Gestioné y analicé el rendimiento de múltiples cuentas en Walmart Seller Center">Managed and analyzed performance across multiple Walmart Seller Center accounts</li>
+                                <li data-en="Contributed to recovering over $250K in reimbursements by optimizing dispute processes and improving tracking accuracy" data-es="Contribuí a recuperar más de $250K en reembolsos optimizando procesos de disputas y mejorando la precisión del seguimiento">Contributed to recovering over $250K in reimbursements by optimizing dispute processes and improving tracking accuracy</li>
+                                <li data-en="Streamlined workflows using Slack and Google Workspace, significantly reducing resolution times" data-es="Optimicé flujos de trabajo con Slack y Google Workspace, reduciendo significativamente los tiempos de resolución">Streamlined workflows using Slack and Google Workspace, significantly reducing resolution times</li>
+                            </ul>
+                            <div class="timeline-tags">
+                                <span data-en="Operations" data-es="Operaciones">Operations</span>
+                                <span>KPI Tracking</span>
+                                <span data-en="Dispute Resolution" data-es="Resolución de Disputas">Dispute Resolution</span>
+                                <span data-en="Workflow Optimization" data-es="Optimización de Flujos">Workflow Optimization</span>
+                            </div>
+                        </div>
+                    </article>
 
-        </div>
+                    <article class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-meta">
+                                <span class="timeline-date" data-en="May 2025 — Aug 2025 · 4 mos" data-es="May 2025 — Ago 2025 · 4 meses">May 2025 — Aug 2025 · 4 mos</span>
+                                <span class="timeline-company">Tecnoglass Inc · Full-time · Barranquilla</span>
+                            </div>
+                            <h3 class="timeline-role" data-en="International Purchasing Specialist" data-es="Especialista en Compras Internacionales">International Purchasing Specialist</h3>
+                            <ul class="timeline-bullets">
+                                <li data-en="Managed international procurement operations across suppliers in the United States, China, and Europe" data-es="Gestioné operaciones de compras internacionales con proveedores en Estados Unidos, China y Europa">Managed international procurement operations across suppliers in the United States, China, and Europe</li>
+                                <li data-en="Analyzed purchasing and inventory data in Excel to support cost optimization and demand forecasting" data-es="Analicé datos de compras e inventario en Excel para apoyar la optimización de costos y la previsión de demanda">Analyzed purchasing and inventory data in Excel to support cost optimization and demand forecasting</li>
+                                <li data-en="Monitored supplier performance and inventory levels to minimize operational delays and stockouts" data-es="Monitoreé el rendimiento de proveedores y los niveles de inventario para minimizar retrasos y quiebres de stock">Monitored supplier performance and inventory levels to minimize operational delays and stockouts</li>
+                                <li data-en="Collaborated with cross-functional teams to enhance purchasing workflows and reporting visibility" data-es="Colaboré con equipos multifuncionales para mejorar los flujos de compras y la visibilidad de reportes">Collaborated with cross-functional teams to enhance purchasing workflows and reporting visibility</li>
+                            </ul>
+                            <div class="timeline-tags">
+                                <span>Excel</span>
+                                <span data-en="Procurement" data-es="Compras">Procurement</span>
+                                <span data-en="Demand Forecasting" data-es="Pronóstico de Demanda">Demand Forecasting</span>
+                                <span data-en="Supply Chain" data-es="Cadena de Suministro">Supply Chain</span>
+                            </div>
+                        </div>
+                    </article>
 
-    </section>
+                    <article class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-meta">
+                                <span class="timeline-date" data-en="Jan 2024 — Jan 2025 · 1 yr 1 mo" data-es="Ene 2024 — Ene 2025 · 1 año 1 mes">Jan 2024 — Jan 2025 · 1 yr 1 mo</span>
+                                <span class="timeline-company" data-en="VYVOA Consulting LLC · Freelance" data-es="VYVOA Consulting LLC · Freelance">VYVOA Consulting LLC · Freelance</span>
+                            </div>
+                            <h3 class="timeline-role" data-en="Database Specialist" data-es="Especialista en Bases de Datos">Database Specialist</h3>
+                            <ul class="timeline-bullets">
+                                <li data-en="Cleaned, validated, and structured large datasets to ensure high data integrity for reporting and analytics" data-es="Limpié, validé y estructuré grandes conjuntos de datos para garantizar alta integridad en reportes y analítica">Cleaned, validated, and structured large datasets to ensure high data integrity for reporting and analytics</li>
+                                <li data-en="Maintained and updated databases, improving consistency and reducing data errors across systems" data-es="Mantuve y actualicé bases de datos, mejorando la consistencia y reduciendo errores de datos en los sistemas">Maintained and updated databases, improving consistency and reducing data errors across systems</li>
+                            </ul>
+                            <div class="timeline-tags">
+                                <span>SQL</span>
+                                <span data-en="Data Cleaning" data-es="Limpieza de Datos">Data Cleaning</span>
+                                <span data-en="Data Integrity" data-es="Integridad de Datos">Data Integrity</span>
+                                <span data-en="Database Management" data-es="Gestión de BD">Database Management</span>
+                            </div>
+                        </div>
+                    </article>
 
-    <!-- CERTIFICATIONS -->
-    <section class="home-section" id="home-certs">
+                    <article class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-meta">
+                                <span class="timeline-date" data-en="Apr 2023 — Jan 2024 · 10 mos" data-es="Abr 2023 — Ene 2024 · 10 meses">Apr 2023 — Jan 2024 · 10 mos</span>
+                                <span class="timeline-company">Lean Solutions Group · Full-time · Barranquilla</span>
+                            </div>
+                            <h3 class="timeline-role" data-en="Data Analyst Internship" data-es="Pasantía de Analista de Datos">Data Analyst Internship</h3>
+                            <ul class="timeline-bullets">
+                                <li data-en="Analyzed datasets to uncover trends and generate actionable business insights for operational enhancement" data-es="Analicé conjuntos de datos para descubrir tendencias y generar insights empresariales accionables">Analyzed datasets to uncover trends and generate actionable business insights for operational enhancement</li>
+                                <li data-en="Developed interactive Power BI dashboards to effectively track KPIs and improve performance visibility" data-es="Desarrollé dashboards interactivos en Power BI para rastrear KPIs y mejorar la visibilidad del rendimiento">Developed interactive Power BI dashboards to effectively track KPIs and improve performance visibility</li>
+                                <li data-en="Collaborated with stakeholders to convert business requirements into data-driven BI solutions" data-es="Colaboré con stakeholders para convertir requisitos de negocio en soluciones de BI basadas en datos">Collaborated with stakeholders to convert business requirements into data-driven BI solutions</li>
+                            </ul>
+                            <div class="timeline-tags">
+                                <span>Power BI</span>
+                                <span>SQL</span>
+                                <span data-en="Data Visualization" data-es="Visualización de Datos">Data Visualization</span>
+                                <span data-en="Business Intelligence" data-es="Inteligencia de Negocios">Business Intelligence</span>
+                            </div>
+                        </div>
+                    </article>
 
-        <div class="home-section-inner">
+                </div>
+            </section>
 
-            <div class="home-section-header">
+            <!-- CERTIFICATIONS -->
+            <section id="certs" class="exp-section">
 
-                <h2 class="home-section-title">
+                <h2 class="section-label" data-en="Certifications &amp; Learning" data-es="Certificaciones y Aprendizaje">Certifications &amp; Learning</h2>
 
-                    <span
-                        data-en="Learning"
-                        data-es="Aprendizaje"
-                    >
-                        Learning
-                    </span>
+                <div class="certs-grid">
 
-                    <span class="highlight">.</span>
+                    <div class="cert-card">
+                        <div class="cert-icon"><i class="fa-solid fa-database"></i></div>
+                        <div class="cert-body">
+                            <h4 data-en="SQL Complete Course" data-es="Curso Completo de SQL">SQL Complete Course</h4>
+                            <span class="cert-provider">Udemy · 2026</span>
+                            <span class="cert-status completed" data-en="Completed" data-es="Completado">Completed</span>
+                        </div>
+                    </div>
 
+                    <div class="cert-card">
+                        <div class="cert-icon"><i class="fa-solid fa-brain"></i></div>
+                        <div class="cert-body">
+                            <h4 data-en="Artificial Intelligence Bootcamp" data-es="Bootcamp de Inteligencia Artificial">Artificial Intelligence Bootcamp</h4>
+                            <span class="cert-provider">MinTIC &amp; Universidad Libre · 2025</span>
+                            <span class="cert-status completed" data-en="Completed" data-es="Completado">Completed</span>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-icon"><i class="fa-solid fa-users"></i></div>
+                        <div class="cert-body">
+                            <h4 data-en="Leadership Development Experience" data-es="Experiencia de Desarrollo de Liderazgo">Leadership Development Experience</h4>
+                            <span class="cert-provider">AIESEC Global Volunteer · 2025</span>
+                            <span class="cert-status completed" data-en="Completed" data-es="Completado">Completed</span>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-icon"><i class="fa-solid fa-chart-column"></i></div>
+                        <div class="cert-body">
+                            <h4 data-en="Power BI: Data Analysis &amp; Business Intelligence" data-es="Power BI: Análisis de Datos e Inteligencia de Negocios">Power BI: Data Analysis &amp; Business Intelligence</h4>
+                            <span class="cert-provider">Udemy · 2024</span>
+                            <span class="cert-status completed" data-en="Completed" data-es="Completado">Completed</span>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-icon"><i class="fa-solid fa-globe"></i></div>
+                        <div class="cert-body">
+                            <h4 data-en="International Trade Certification: Caribbean Perspectives" data-es="Certificación en Comercio Internacional: Perspectivas para el Caribe">International Trade Certification: Caribbean Perspectives</h4>
+                            <span class="cert-provider">Universidad del Norte &amp; OMC · 2024</span>
+                            <span class="cert-status completed" data-en="Completed" data-es="Completado">Completed</span>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-icon"><i class="fa-solid fa-piggy-bank"></i></div>
+                        <div class="cert-body">
+                            <h4 data-en="Financial Education Program" data-es="Programa de Educación Financiera">Financial Education Program</h4>
+                            <span class="cert-provider">Universidad del Norte · 2023</span>
+                            <span class="cert-status completed" data-en="Completed" data-es="Completado">Completed</span>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-icon"><i class="fa-solid fa-file-excel"></i></div>
+                        <div class="cert-body">
+                            <h4 data-en="Financial Excel" data-es="Excel Financiero">Financial Excel</h4>
+                            <span class="cert-provider">Platzi · 2022</span>
+                            <span class="cert-status completed" data-en="Completed" data-es="Completado">Completed</span>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-icon"><i class="fa-solid fa-chart-line"></i></div>
+                        <div class="cert-body">
+                            <h4 data-en="Technical Analysis of Financial Markets" data-es="Análisis Técnico de Mercados Financieros">Technical Analysis of Financial Markets</h4>
+                            <span class="cert-provider">Platzi · 2022</span>
+                            <span class="cert-status completed" data-en="Completed" data-es="Completado">Completed</span>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-icon"><i class="fa-brands fa-python"></i></div>
+                        <div class="cert-body">
+                            <h4 data-en="Intermediate Python: Comprehensions, Lambdas &amp; Error Handling" data-es="Python Intermedio: Comprehensions, Lambdas y Manejo de Errores">Intermediate Python: Comprehensions, Lambdas &amp; Error Handling</h4>
+                            <span class="cert-provider">Platzi · 2022</span>
+                            <span class="cert-status completed" data-en="Completed" data-es="Completado">Completed</span>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-icon"><i class="fa-solid fa-bitcoin-sign"></i></div>
+                        <div class="cert-body">
+                            <h4 data-en="Digital Economy: Bitcoin &amp; Cryptocurrencies" data-es="Economía Digital: Bitcoin y Criptomonedas">Digital Economy: Bitcoin &amp; Cryptocurrencies</h4>
+                            <span class="cert-provider">Platzi · 2021</span>
+                            <span class="cert-status completed" data-en="Completed" data-es="Completado">Completed</span>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                        <div class="cert-body">
+                            <h4 data-en="Organizational Financial Analysis Diploma" data-es="Diplomado en Análisis Financiero Organizacional">Organizational Financial Analysis Diploma</h4>
+                            <span class="cert-provider">Politécnico Superior de Colombia · 2021</span>
+                            <span class="cert-status completed" data-en="Completed" data-es="Completado">Completed</span>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-icon"><i class="fa-solid fa-terminal"></i></div>
+                        <div class="cert-body">
+                            <h4 data-en="Bloomberg Market Concepts (BMC)" data-es="Bloomberg Market Concepts (BMC)">Bloomberg Market Concepts (BMC)</h4>
+                            <span class="cert-provider">Bloomberg for Education · 2020</span>
+                            <span class="cert-status completed" data-en="Completed" data-es="Completado">Completed</span>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                        <div class="cert-body">
+                            <h4 data-en="Stock Market for Beginners" data-es="Bolsa para Principiantes">Stock Market for Beginners</h4>
+                            <span class="cert-provider">Bolsa de Valores de Colombia · 2020</span>
+                            <span class="cert-status completed" data-en="Completed" data-es="Completado">Completed</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- CURRENTLY LEARNING -->
+            <section class="exp-section">
+
+                <h2 class="section-label" data-en="Currently Learning" data-es="Aprendiendo Actualmente">Currently Learning</h2>
+
+                <div class="learning-grid">
+                    <div class="learning-item">
+                        <i class="fa-solid fa-database"></i>
+                        <span data-en="Advanced SQL &amp; Data Modeling" data-es="SQL Avanzado y Modelado de Datos">Advanced SQL &amp; Data Modeling</span>
+                    </div>
+                    <div class="learning-item">
+                        <i class="fa-brands fa-python"></i>
+                        <span data-en="Python Automation &amp; APIs" data-es="Automatización con Python y APIs">Python Automation &amp; APIs</span>
+                    </div>
+                    <div class="learning-item">
+                        <i class="fa-solid fa-diagram-project"></i>
+                        <span data-en="Software Architecture" data-es="Arquitectura de Software">Software Architecture</span>
+                    </div>
+                    <div class="learning-item">
+                        <i class="fa-solid fa-cloud"></i>
+                        <span data-en="AWS Cloud Fundamentals" data-es="Fundamentos de AWS Cloud">AWS Cloud Fundamentals</span>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+
+    </div><!-- /view-about -->
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         VIEW: PROJECTS
+    ═══════════════════════════════════════════════════════ -->
+    <div id="view-projects" class="view">
+
+        <main class="projects-page">
+
+            <section class="projects-hero">
+                <h1 class="title">
+                    <span data-en="Projects" data-es="Proyectos">Projects</span><span class="highlight">.</span>
+                </h1>
+                <p class="projects-subtitle" data-en="A selection of work spanning data analytics, automation, and web development." data-es="Una selección de trabajos en análisis de datos, automatización y desarrollo web.">
+                    A selection of work spanning data analytics, automation, and web development.
+                </p>
+            </section>
+
+            <!-- FEATURED -->
+            <section class="projects-section">
+
+                <h2 class="section-label">
+                    <span class="highlight">#</span> <span data-en="Featured" data-es="Destacados">Featured</span>
                 </h2>
 
-                <a href="about.html#certs" class="section-link">
+                <div class="featured-grid">
 
-                    <span
-                        data-en="All certs"
-                        data-es="Todas las certificaciones"
-                    >
-                        All certs
-                    </span>
+                    <article class="project-card">
+                        <div class="project-card-header">
+                            <img src="Assets/sushi.png" alt="Sushi Festival Project" class="project-image">
+                            <span class="project-badge">JavaScript · CSS · HTML</span>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-title" data-en="Sushi Festival Landing Page" data-es="Landing Page Festival de Sushi">Sushi Festival Landing Page</h3>
+                            <p class="project-description" data-en="Landing page for a sushi festival event with modern UI design, responsive structure, and interactive sections focused on user experience and visual presentation." data-es="Landing page para un evento de festival de sushi con diseño UI moderno, estructura responsiva y secciones interactivas enfocadas en la experiencia del usuario.">
+                                Landing page for a sushi festival event with modern UI design, responsive structure, and interactive sections focused on user experience and visual presentation.
+                            </p>
+                            <ul class="project-highlights">
+                                <li><i class="fa-solid fa-circle-check"></i> <span data-en="Responsive design optimized for multiple devices" data-es="Diseño responsivo optimizado para múltiples dispositivos">Responsive design optimized for multiple devices</span></li>
+                                <li><i class="fa-solid fa-circle-check"></i> <span data-en="Structured frontend layout using semantic HTML" data-es="Estructura de frontend usando HTML semántico">Structured frontend layout using semantic HTML</span></li>
+                                <li><i class="fa-solid fa-circle-check"></i> <span data-en="Interactive interface built with vanilla JavaScript" data-es="Interfaz interactiva construida con JavaScript puro">Interactive interface built with vanilla JavaScript</span></li>
+                            </ul>
+                            <div class="project-steps">
+                                <span class="step" data-en="Design" data-es="Diseño">Design</span>
+                                <i class="fa-solid fa-arrow-right step-arrow"></i>
+                                <span class="step">JavaScript</span>
+                                <i class="fa-solid fa-arrow-right step-arrow"></i>
+                                <span class="step">HTML</span>
+                                <i class="fa-solid fa-arrow-right step-arrow"></i>
+                                <span class="step">CSS</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://festival-gastronomico-baq.netlify.app/" class="cta-btn filled" target="_blank">
+                                    <i class="fa-solid fa-globe"></i>
+                                    <span data-en="Live Website" data-es="Sitio en Vivo">Live Website</span>
+                                </a>
+                                <a href="https://github.com/melissagarridos/Festival-Gastronomico" class="cta-btn outline" target="_blank">
+                                    <i class="fa-brands fa-github"></i>
+                                    GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </article>
 
-                    <i class="fa-solid fa-arrow-right"></i>
+                    <article class="project-card featured-card">
+                        <div class="project-card-header">
+                            <img src="Assets/wfs.png" alt="WFS Toolkit" class="project-image">
+                            <span class="project-badge">Operations · Automation · Analytics</span>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-title">WFS Refund Recovery Toolkit</h3>
+                            <p class="project-description">
+                                Operational toolkit designed to streamline Walmart Fulfillment Services reimbursement workflows, improving audit tracking, case management, and financial recovery processes.
+                            </p>
+                            <ul class="project-highlights">
+                                <li><i class="fa-solid fa-circle-check"></i> <span>Reimbursement workflow optimization</span></li>
+                                <li><i class="fa-solid fa-circle-check"></i> <span>Audit and case tracking system</span></li>
+                                <li><i class="fa-solid fa-circle-check"></i> <span>Operational analytics improvement</span></li>
+                            </ul>
+                            <div class="project-steps">
+                                <span class="step">Operations</span>
+                                <i class="fa-solid fa-arrow-right step-arrow"></i>
+                                <span class="step">Analytics</span>
+                                <i class="fa-solid fa-arrow-right step-arrow"></i>
+                                <span class="step">Automation</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://melissagarridos.github.io/wfs-refund-recovery-toolkit.github.io/" class="cta-btn filled" target="_blank">
+                                    <i class="fa-solid fa-globe"></i>
+                                    <span data-en="Live Website" data-es="Sitio en Vivo">Live Website</span>
+                                </a>
+                                <a href="https://github.com/melissagarridos/wfs-refund-recovery-toolkit.github.io" class="cta-btn outline" target="_blank">
+                                    <i class="fa-brands fa-github"></i>
+                                    GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </article>
 
+                    <article class="project-card featured-card">
+                        <div class="project-card-header">
+                            <img src="Assets/hero-dashboard.png" alt="Student Risk Analytics" class="project-image">
+                            <span class="project-badge">Data Analytics · Power BI</span>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-title">Student Risk &amp; Retention Analytics</h3>
+                            <p class="project-description">
+                                End-to-end analytics project focused on identifying at-risk students, analyzing engagement patterns, and building retention strategies using Power BI dashboards and data modeling.
+                            </p>
+                            <ul class="project-highlights">
+                                <li><i class="fa-solid fa-circle-check"></i> <span>Retention risk analysis model</span></li>
+                                <li><i class="fa-solid fa-circle-check"></i> <span>Interactive Power BI dashboards</span></li>
+                                <li><i class="fa-solid fa-circle-check"></i> <span>Business insights for decision making</span></li>
+                            </ul>
+                            <div class="project-steps">
+                                <span class="step">Analysis</span>
+                                <i class="fa-solid fa-arrow-right step-arrow"></i>
+                                <span class="step">Power BI</span>
+                                <i class="fa-solid fa-arrow-right step-arrow"></i>
+                                <span class="step">Strategy</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/melissagarridos/Student-Risk-Retention-Strategy-Analytics" class="cta-btn filled" target="_blank">
+                                    <i class="fa-brands fa-github"></i>
+                                    View on GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card featured-card">
+                        <div class="project-card-header">
+                            <img src="Assets/powerbi.png" alt="Revenue Analytics Dashboard" class="project-image">
+                            <span class="project-badge">Data Analysis · Power BI</span>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-title" data-en="Revenue Dashboard" data-es="Revenue Dashboard">Revenue Dashboard</h3>
+                            <p class="project-description" data-en="Interactive dashboard built with Power BI analyzing revenue, utilities, sales performance, and country-level insights using DAX." data-es="Dashboard interactivo construido con Power BI que analiza ingresos, utilidades, rendimiento de ventas e indicadores por país usando medidas DAX.">
+                                Interactive dashboard built with Power BI analyzing revenue, utilities, sales performance, and country-level insights using DAX.
+                            </p>
+                            <ul class="project-highlights">
+                                <li><i class="fa-solid fa-circle-check"></i> <span data-en="Interactive Power BI dashboard with dynamic filters and KPIs" data-es="Dashboard interactivo en Power BI con filtros dinámicos y KPIs">Interactive Power BI dashboard with dynamic filters and KPIs</span></li>
+                                <li><i class="fa-solid fa-circle-check"></i> <span data-en="Data analysis using DAX measures and multiple data sources" data-es="Análisis de datos utilizando medidas DAX y múltiples fuentes de datos">Data analysis using DAX measures and multiple data sources</span></li>
+                                <li><i class="fa-solid fa-circle-check"></i> <span data-en="Revenue, sales, utilities, and sector performance visualization" data-es="Visualización de ingresos, ventas, utilidades y rendimiento por sector">Revenue, sales, utilities, and sector performance visualization</span></li>
+                            </ul>
+                            <div class="project-steps">
+                                <span class="step" data-en="Data Analysis" data-es="Análisis de datos">Data Analysis</span>
+                                <i class="fa-solid fa-arrow-right step-arrow"></i>
+                                <span class="step">Power BI</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/melissagarridos/Power-BI-Dashboard" class="cta-btn filled" target="_blank">
+                                    <i class="fa-brands fa-github"></i>
+                                    <span data-en="View on GitHub" data-es="Ver en GitHub">View on GitHub</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card featured-card">
+                        <div class="project-card-header">
+                            <img src="Assets/python.jpg" alt="Geometric Calculator Project" class="project-image">
+                            <span class="project-badge">Python · Logic · Math</span>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-title" data-en="Geometric Calculator" data-es="Calculadora Geométrica">Geometric Calculator</h3>
+                            <p class="project-description" data-en="Python-based calculator focused on geometric operations, formulas, and problem-solving logic. Built to strengthen programming fundamentals, reasoning, and algorithmic thinking." data-es="Calculadora en Python enfocada en operaciones geométricas, fórmulas y lógica de resolución de problemas.">
+                                Python-based calculator focused on geometric operations, formulas, and problem-solving logic. Built to strengthen programming fundamentals, reasoning, and algorithmic thinking.
+                            </p>
+                            <ul class="project-highlights">
+                                <li><i class="fa-solid fa-circle-check"></i> <span data-en="Calculates geometric areas, perimeters, and measurements" data-es="Calcula áreas, perímetros y medidas geométricas">Calculates geometric areas, perimeters, and measurements</span></li>
+                                <li><i class="fa-solid fa-circle-check"></i> <span data-en="Reinforced Python fundamentals and coding structure" data-es="Reforzó los fundamentos de Python y la estructura del código">Reinforced Python fundamentals and coding structure</span></li>
+                                <li><i class="fa-solid fa-circle-check"></i> <span data-en="Applied mathematical reasoning through programming" data-es="Razonamiento matemático aplicado a través de la programación">Applied mathematical reasoning through programming</span></li>
+                            </ul>
+                            <div class="project-steps">
+                                <span class="step" data-en="Logic" data-es="Lógica">Logic</span>
+                                <i class="fa-solid fa-arrow-right step-arrow"></i>
+                                <span class="step">Python</span>
+                                <i class="fa-solid fa-arrow-right step-arrow"></i>
+                                <span class="step" data-en="Testing" data-es="Pruebas">Testing</span>
+                                <i class="fa-solid fa-arrow-right step-arrow"></i>
+                                <span class="step">CLI</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/melissagarridos/Calculadora-Geometrica" class="cta-btn filled" target="_blank">
+                                    <i class="fa-brands fa-github"></i>
+                                    <span data-en="View on GitHub" data-es="Ver en GitHub">View on GitHub</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card featured-card">
+                        <div class="project-card-header">
+                            <img src="Assets/game.jpg" alt="Terminal Souls Project" class="project-image">
+                            <span class="project-badge">Python · Game Logic</span>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-title" data-en="Terminal Souls" data-es="Terminal Souls">Terminal Souls</h3>
+                            <p class="project-description" data-en="Terminal-based fighting game developed in Python featuring multiple characters, combat rounds, and gameplay mechanics. Focused on logic flow, conditionals, and interactive gameplay." data-es="Juego de peleas en terminal desarrollado en Python con múltiples personajes, rondas de combate y mecánicas de juego.">
+                                Terminal-based fighting game developed in Python featuring multiple characters, combat rounds, and gameplay mechanics. Focused on logic flow, conditionals, and interactive gameplay.
+                            </p>
+                            <ul class="project-highlights">
+                                <li><i class="fa-solid fa-circle-check"></i> <span data-en="Multi-character battle system with fighting rounds" data-es="Sistema de batalla multipersonaje con rondas de combate">Multi-character battle system with fighting rounds</span></li>
+                                <li><i class="fa-solid fa-circle-check"></i> <span data-en="Interactive terminal gameplay experience" data-es="Experiencia de juego interactiva en terminal">Interactive terminal gameplay experience</span></li>
+                                <li><i class="fa-solid fa-circle-check"></i> <span data-en="Built with object-oriented and gameplay logic concepts" data-es="Construido con conceptos de POO y lógica de juego">Built with object-oriented and gameplay logic concepts</span></li>
+                            </ul>
+                            <div class="project-steps">
+                                <span class="step" data-en="Gameplay" data-es="Jugabilidad">Gameplay</span>
+                                <i class="fa-solid fa-arrow-right step-arrow"></i>
+                                <span class="step" data-en="Combat Logic" data-es="Lógica de Combate">Combat Logic</span>
+                                <i class="fa-solid fa-arrow-right step-arrow"></i>
+                                <span class="step">Python</span>
+                                <i class="fa-solid fa-arrow-right step-arrow"></i>
+                                <span class="step" data-en="Testing" data-es="Pruebas">Testing</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/melissagarridos/Terminal-Souls" class="cta-btn filled" target="_blank">
+                                    <i class="fa-brands fa-github"></i>
+                                    <span data-en="View on GitHub" data-es="Ver en GitHub">View on GitHub</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- BY CATEGORY -->
+            <section class="projects-section">
+
+                <h2 class="section-label">
+                    <span data-en="By Category" data-es="Por Categoría">By Category</span>
+                </h2>
+
+                <div class="category-tabs">
+                    <button class="cat-tab active" data-filter="all"        data-en="All"             data-es="Todos">All</button>
+                    <button class="cat-tab"         data-filter="frontend"  data-en="Web Development"  data-es="Desarrollo Web">Web Development</button>
+                    <button class="cat-tab"         data-filter="python"    data-en="Python"           data-es="Python">Python</button>
+                    <button class="cat-tab"         data-filter="data"      data-en="Data Analytics"   data-es="Analítica de Datos">Data Analytics</button>
+                    <button class="cat-tab"         data-filter="automation" data-en="Automation"      data-es="Automatización">Automation</button>
+                </div>
+
+                <div class="mini-projects-grid" id="mini-grid">
+
+                    <article class="mini-card" data-category="automation">
+                        <div class="mini-card-icon"><i class="fa-solid fa-list-check"></i></div>
+                        <div class="mini-card-body">
+                            <h4>Personal Task Management</h4>
+                            <p>Productivity system for organizing tasks, goals, and daily planning efficiently.</p>
+                            <div class="mini-tags"><span>Productivity</span><span>Planning</span></div>
+                        </div>
+                        <a href="https://github.com/melissagarridos/Personal-Task-Management" class="mini-link" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    </article>
+
+                    <article class="mini-card" data-category="frontend">
+                        <div class="mini-card-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+                        <div class="mini-card-body">
+                            <h4>Sweet Crumbs Bakery</h4>
+                            <p>Modern responsive bakery website with product showcase and UI design.</p>
+                            <div class="mini-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                        </div>
+                        <a href="https://github.com/melissagarridos/Sweet-Crumbs" class="mini-link" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    </article>
+
+                    <article class="mini-card" data-category="frontend">
+                        <div class="mini-card-icon"><i class="fa-solid fa-utensils"></i></div>
+                        <div class="mini-card-body">
+                            <h4 data-en="Sushi Festival Landing Page" data-es="Landing Page Festival de Sushi">Sushi Festival Landing Page</h4>
+                            <p data-en="Modern responsive landing page for a gastronomic festival." data-es="Landing page responsiva moderna para un festival gastronómico.">Modern responsive landing page for a gastronomic festival.</p>
+                            <div class="mini-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                        </div>
+                        <a href="https://github.com/melissagarridos/Festival-Gastronomico" class="mini-link" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    </article>
+
+                    <article class="mini-card" data-category="data">
+                        <div class="mini-card-icon"><i class="fa-solid fa-chart-line"></i></div>
+                        <div class="mini-card-body">
+                            <h4>Student Risk Analytics</h4>
+                            <p>Power BI-based analysis identifying at-risk students and retention patterns.</p>
+                            <div class="mini-tags"><span>Power BI</span><span>DAX</span><span>Data Analysis</span></div>
+                        </div>
+                        <a href="https://github.com/melissagarridos/Student-Risk-Retention-Strategy-Analytics" class="mini-link" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    </article>
+
+                    <article class="mini-card" data-category="automation">
+                        <div class="mini-card-icon"><i class="fa-solid fa-gears"></i></div>
+                        <div class="mini-card-body">
+                            <h4>WFS Refund Recovery Toolkit</h4>
+                            <p>Operational toolkit for reimbursement tracking, audits, and workflow optimization.</p>
+                            <div class="mini-tags"><span>Operations</span><span>Automation</span><span>Analytics</span></div>
+                        </div>
+                        <a href="https://github.com/melissagarridos/wfs-refund-recovery-toolkit.github.io" class="mini-link" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    </article>
+
+                    <article class="mini-card" data-category="frontend">
+                        <div class="mini-card-icon"><i class="fa-solid fa-briefcase"></i></div>
+                        <div class="mini-card-body">
+                            <h4 data-en="Professional Portfolio Landing Page" data-es="Landing Page de Portafolio Profesional">Professional Portfolio Landing Page</h4>
+                            <p data-en="Multi-page responsive portfolio built with HTML, CSS, and JavaScript featuring custom UI components, animations, and mobile-first design." data-es="Portafolio responsivo multi página construido con HTML, CSS y JavaScript con componentes UI personalizados, animaciones y diseño mobile-first.">Multi-page responsive portfolio built with HTML, CSS, and JavaScript featuring custom UI components, animations, and mobile-first design.</p>
+                            <div class="mini-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                        </div>
+                        <a href="https://github.com/melissagarridos/Personal-Portfolio" class="mini-link" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    </article>
+
+                    <article class="mini-card" data-category="frontend">
+                        <div class="mini-card-icon"><i class="fa-solid fa-music"></i></div>
+                        <div class="mini-card-body">
+                            <h4 data-en="Rock Band Website" data-es="Sitio Web de Banda de Rock">Rock Band Website</h4>
+                            <p data-en="Music-themed responsive website with modern visual design." data-es="Sitio web responsivo de temática musical con diseño visual moderno.">Music-themed responsive website with modern visual design.</p>
+                            <div class="mini-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                        </div>
+                        <a href="https://github.com/melissagarridos/Rock-Band-Website" class="mini-link" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    </article>
+
+                    <article class="mini-card" data-category="python">
+                        <div class="mini-card-icon"><i class="fa-solid fa-gamepad"></i></div>
+                        <div class="mini-card-body">
+                            <h4 data-en="Terminal Souls" data-es="Terminal Souls">Terminal Souls</h4>
+                            <p data-en="Terminal fighting game built with Python combat logic." data-es="Juego de peleas en terminal construido con lógica de combate en Python.">Terminal fighting game built with Python combat logic.</p>
+                            <div class="mini-tags"><span>Python</span><span>Game Dev</span><span>CLI</span></div>
+                        </div>
+                        <a href="https://github.com/melissagarridos/Terminal-Souls" class="mini-link" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    </article>
+
+                    <article class="mini-card" data-category="python">
+                        <div class="mini-card-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
+                        <div class="mini-card-body">
+                            <h4 data-en="Inventory CRUD" data-es="CRUD de Inventario">Inventory CRUD</h4>
+                            <p data-en="Python CRUD system for inventory and product management." data-es="Sistema CRUD en Python para gestión de inventario y productos.">Python CRUD system for inventory and product management.</p>
+                            <div class="mini-tags"><span>Python</span><span>CRUD</span><span>Data</span></div>
+                        </div>
+                        <a href="https://github.com/melissagarridos/CRUD-Inventario" class="mini-link" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    </article>
+
+                    <article class="mini-card" data-category="python">
+                        <div class="mini-card-icon"><i class="fa-solid fa-user-graduate"></i></div>
+                        <div class="mini-card-body">
+                            <h4 data-en="Students CRUD" data-es="CRUD de Estudiantes">Students CRUD</h4>
+                            <p data-en="Student management system using Python CRUD operations." data-es="Sistema de gestión de estudiantes con operaciones CRUD en Python.">Student management system using Python CRUD operations.</p>
+                            <div class="mini-tags"><span>Python</span><span>CRUD</span><span>CLI</span></div>
+                        </div>
+                        <a href="https://github.com/melissagarridos/CRUD-Estudiantes" class="mini-link" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    </article>
+
+                    <article class="mini-card" data-category="data">
+                        <div class="mini-card-icon"><i class="fa-solid fa-chart-line"></i></div>
+                        <div class="mini-card-body">
+                            <h4>Revenue Dashboard</h4>
+                            <p>Interactive Power BI dashboard analyzing revenue, sales performance, utilities, and country-level insights using DAX and multi-source data modeling.</p>
+                            <div class="mini-tags"><span>Power BI</span><span>DAX</span><span>Data Analysis</span></div>
+                        </div>
+                        <a href="https://github.com/melissagarridos/Power-BI-Dashboard" class="mini-link" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    </article>
+
+                    <article class="mini-card" data-category="python">
+                        <div class="mini-card-icon"><i class="fa-solid fa-calculator"></i></div>
+                        <div class="mini-card-body">
+                            <h4 data-en="Geometric Calculator" data-es="Calculadora Geométrica">Geometric Calculator</h4>
+                            <p data-en="Python calculator for geometric formulas and measurements." data-es="Calculadora Python para fórmulas y medidas geométricas.">Python calculator for geometric formulas and measurements.</p>
+                            <div class="mini-tags"><span>Python</span><span>Logic</span><span>Math</span></div>
+                        </div>
+                        <a href="https://github.com/melissagarridos/Calculadora-Geometrica" class="mini-link" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    </article>
+
+                </div>
+            </section>
+
+        </main>
+
+    </div><!-- /view-projects -->
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         VIEW: CONTACT
+    ═══════════════════════════════════════════════════════ -->
+    <div id="view-contact" class="view">
+
+        <section class="contact-page">
+
+            <section class="center-title">
+                <span>
+                    <span data-en="Contact" data-es="Contacto">Contact</span><span class="highlight">.</span>
+                </span>
+            </section>
+
+            <p class="center-subtitle" data-en="Have a project, collaboration, or opportunity in mind? Send me a message and I'll get back to you as soon as possible." data-es="¿Tienes un proyecto, colaboración u oportunidad en mente? Envíame un mensaje y te responderé lo antes posible.">
+                Have a project, collaboration, or opportunity in mind?
+                Send me a message and I'll get back to you as soon as possible.
+            </p>
+
+            <section id="form">
+                <form class="contact-form" id="contactForm" novalidate>
+
+                    <div class="field">
+                        <label for="name">
+                            <span data-en="Full Name" data-es="Nombre Completo">Full Name</span>
+                            <span class="highlight">*</span>
+                        </label>
+                        <input type="text" id="name" name="name" placeholder="Jane Doe" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="email">
+                            <span data-en="Email Address" data-es="Correo Electrónico">Email Address</span>
+                            <span class="highlight">*</span>
+                        </label>
+                        <input type="email" id="email" name="email" placeholder="jane@email.com" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="phone" data-en="Phone Number" data-es="Número de Teléfono">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+57 300 000 0000">
+                    </div>
+
+                    <div class="field">
+                        <label for="message" data-en="What do you want to talk about?" data-es="¿De qué quieres hablar?">What do you want to talk about?</label>
+                        <textarea id="message" name="message" rows="6" maxlength="500" placeholder="Tell me about your project, goals, or how I can help..."></textarea>
+                    </div>
+
+                    <div class="submit-row">
+                        <button id="submitbtn" type="submit" data-en="Send Message →" data-es="Enviar Mensaje →">Send Message →</button>
+                    </div>
+
+                    <div class="success-msg" id="successMsg" data-en="✓ Your message has been sent successfully. I'll get back to you as soon as possible." data-es="✓ Tu mensaje ha sido enviado exitosamente. Te responderé lo antes posible.">
+                        ✓ Your message has been sent successfully. I'll get back to you as soon as possible.
+                    </div>
+
+                </form>
+            </section>
+
+            <section style="display:flex;justify-content:center;gap:24px;flex-wrap:wrap;padding:20px 20px 80px;">
+                <a href="mailto:melissagarridosierra@gmail.com" class="cta-btn outline">
+                    <i class="fa-solid fa-envelope"></i> Email
                 </a>
+                <a href="https://www.linkedin.com/in/melissavgs/" target="_blank" rel="noopener" class="cta-btn outline">
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://github.com/melissagarridos" target="_blank" rel="noopener" class="cta-btn outline">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
+            </section>
 
-            </div>
+        </section>
 
-            <div class="home-certs-row">
+    </div><!-- /view-contact -->
 
-                <div
-                    class="home-cert-pill"
-                    data-en="Artificial Intelligence Bootcamp"
-                    data-es="Bootcamp de Inteligencia Artificial"
-                >
-                    <i class="fa-solid fa-brain"></i>
-                    Artificial Intelligence Bootcamp
-                </div>
-
-                <div
-                    class="home-cert-pill"
-                    data-en="SQL Complete Course"
-                    data-es="Curso Completo de SQL"
-                >
-                    <i class="fa-solid fa-database"></i>
-                    SQL Complete Course
-                </div>
-
-                <div
-                    class="home-cert-pill"
-                    data-en="Power BI Data Analysis"
-                    data-es="Análisis de Datos con Power BI"
-                >
-                    <i class="fa-solid fa-chart-column"></i>
-                    Power BI Data Analysis
-                </div>
-
-                <div
-                    class="home-cert-pill"
-                    data-en="Python Fundamentals"
-                    data-es="Fundamentos de Python"
-                >
-                    <i class="fa-brands fa-python"></i>
-                    Python Fundamentals
-                </div>
-
-            </div>
-
-            <div class="home-currently-learning">
-
-                <span
-                    class="currently-label"
-                    data-en="Currently learning:"
-                    data-es="Aprendiendo actualmente:"
-                >
-                    Currently learning:
-                </span>
-
-                <span
-                    class="currently-items"
-                    data-en="Advanced SQL & Data Modeling · Python Automation · React · Software Architecture · AWS Fundamentals"
-                    data-es="SQL Avanzado y Modelado de Datos · Automatización con Python · React · Arquitectura de Software · Fundamentos de AWS"
-                >
-                    Advanced SQL &amp; Data Modeling ·
-                    Python Automation ·
-                    React ·
-                    Software Architecture ·
-                    AWS Fundamentals
-                </span>
-
-            </div>
-
-        </div>
-
-    </section>
-
-<script src="index.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
