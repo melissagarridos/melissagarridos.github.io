@@ -2235,9 +2235,15 @@ textarea:focus {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 10px;
   padding-top: 20px;
   border-top: 1px solid var(--border);
   margin-top: 20px;
+}
+
+.sidebar-footer .lang-btn,
+.sidebar-footer .theme-btn {
+  display: inline-flex;
 }
 
 .sidebar-footer .lang-btn {
@@ -2262,8 +2268,8 @@ textarea:focus {
   }
 
   /* keep lang-btn and theme-btn visible in header on mobile */
-  .lang-btn,
-  .theme-btn {
+  .header .lang-btn,
+  .header .theme-btn {
     display: none; /* moved into sidebar */
   }
 
