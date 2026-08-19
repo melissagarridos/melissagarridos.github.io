@@ -3,19 +3,19 @@ const VIEWS = ['home', 'about', 'projects', 'contact'];
 
 const META = {
   home:     {
-    title: 'Melissa Garrido — Software Developer & Data Analytics Engineer',
-    desc:  'Software Developer and Business Intelligence Engineer with 3+ years of experience in Python, SQL, Power BI, and web development. Open to remote opportunities.',
+    title: 'Melissa Garrido — Data Analyst & Business Intelligence',
+    desc:  'Data Analyst and Business Intelligence professional with 3+ years of experience in SQL, Python, Power BI, and data storytelling. Open to remote opportunities.',
   },
   about:    {
-    title: 'About — Melissa Garrido | Software Developer & BI Engineer',
-    desc:  'Learn about Melissa Garrido\'s background in software development, data analytics, automation, and business intelligence.',
+    title: 'About — Melissa Garrido | Data Analyst & BI Professional',
+    desc:  'Learn about Melissa Garrido\'s background in data analysis, business intelligence, automation, and reporting.',
   },
   projects: {
-    title: 'Projects — Melissa Garrido | Python, Power BI, Web Development',
-    desc:  'Portfolio projects spanning Python automation, Power BI dashboards, data analytics, and full-stack web development.',
+    title: 'Projects — Melissa Garrido | Python, SQL, Power BI, Data Analytics',
+    desc:  'Portfolio projects spanning data analytics, Python, SQL, Power BI dashboards, and automation.',
   },
   contact:  {
-    title: 'Contact — Melissa Garrido | Software Developer',
+    title: 'Contact — Melissa Garrido | Data Analyst',
     desc:  'Get in touch with Melissa Garrido for job opportunities, collaborations, or project inquiries.',
   },
 };
